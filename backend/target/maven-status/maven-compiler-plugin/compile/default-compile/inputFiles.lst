@@ -1,13 +1,21 @@
-C:\Users\charl\OneDrive - University of South Carolina\Desktop\mock-trial-platform\backend\src\main\java\com\charles\mocktrial\config\DataInitializer.java
-C:\Users\charl\OneDrive - University of South Carolina\Desktop\mock-trial-platform\backend\src\main\java\com\charles\mocktrial\MocktrialApplication.java
-C:\Users\charl\OneDrive - University of South Carolina\Desktop\mock-trial-platform\backend\src\main\java\com\charles\mocktrial\model\CaseStatus.java
-C:\Users\charl\OneDrive - University of South Carolina\Desktop\mock-trial-platform\backend\src\main\java\com\charles\mocktrial\model\MockTrialCase.java
-C:\Users\charl\OneDrive - University of South Carolina\Desktop\mock-trial-platform\backend\src\main\java\com\charles\mocktrial\model\Team.java
-C:\Users\charl\OneDrive - University of South Carolina\Desktop\mock-trial-platform\backend\src\main\java\com\charles\mocktrial\model\TeamMembership.java
-C:\Users\charl\OneDrive - University of South Carolina\Desktop\mock-trial-platform\backend\src\main\java\com\charles\mocktrial\model\TeamRole.java
-C:\Users\charl\OneDrive - University of South Carolina\Desktop\mock-trial-platform\backend\src\main\java\com\charles\mocktrial\model\User.java
-C:\Users\charl\OneDrive - University of South Carolina\Desktop\mock-trial-platform\backend\src\main\java\com\charles\mocktrial\repository\MockTrialCaseRepository.java
-C:\Users\charl\OneDrive - University of South Carolina\Desktop\mock-trial-platform\backend\src\main\java\com\charles\mocktrial\repository\TeamMembershipRepository.java
-C:\Users\charl\OneDrive - University of South Carolina\Desktop\mock-trial-platform\backend\src\main\java\com\charles\mocktrial\repository\TeamRepository.java
-C:\Users\charl\OneDrive - University of South Carolina\Desktop\mock-trial-platform\backend\src\main\java\com\charles\mocktrial\repository\UserRepository.java
-C:\Users\charl\OneDrive - University of South Carolina\Desktop\mock-trial-platform\backend\src\main\java\com\charles\mocktrial\service\UserService.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/MocktrialApplication.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/config/DataInitializer.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/config/SecurityConfig.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/controller/CaseController.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/controller/TeamController.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/controller/UserController.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/dto/CreateCaseRequest.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/dto/CreateTeamRequest.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/model/CaseStatus.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/model/MockTrialCase.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/model/Team.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/model/TeamMembership.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/model/TeamRole.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/model/User.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/repository/MockTrialCaseRepository.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/repository/TeamMembershipRepository.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/repository/TeamRepository.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/repository/UserRepository.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/service/CaseService.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/service/TeamService.java
+/Users/charlesnewhouse/Documents/GitHub/mock-trial-platform/backend/src/main/java/com/charles/mocktrial/service/UserService.java

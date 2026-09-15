@@ -1,0 +1,13 @@
+package com.charles.mocktrial;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MocktrialApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MocktrialApplication.class, args);
+	}
+
+}

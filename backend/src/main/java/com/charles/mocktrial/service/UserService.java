@@ -32,4 +32,8 @@ public class UserService {
         return userRepository.findAll();
 
     }
+
+    public User getUserByAuthId(UUID authId) {
+        return userRepository.findByAuthId(authId).orElse(null);
+    }
 }

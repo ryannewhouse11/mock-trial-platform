@@ -2,6 +2,7 @@ package com.charles.mocktrial.model;
 import java.util.UUID;
 
 import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -15,6 +16,9 @@ public class User {
 
     private String name;
     private String email;
+
+    @Column(unique = true)
+    private UUID authID;
 
     public User() {
     }
@@ -48,4 +52,11 @@ public class User {
         this.email = email;
     }
 
+    public UUID getAuthID() {
+        return authID;
+    }
+
+    public void setAuthId(UUID authId) {
+        this.authID = authId;
+    }
 }

@@ -18,7 +18,7 @@ public class User {
     private String email;
 
     @Column(unique = true)
-    private UUID authID;
+    private UUID authId;
 
     public User() {
     }
@@ -53,10 +53,10 @@ public class User {
     }
 
     public UUID getAuthID() {
-        return authID;
+        return authId;
     }
 
     public void setAuthId(UUID authId) {
-        this.authID = authId;
+        this.authId = authId;
     }
 }

@@ -20,10 +20,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/{id}")
-    public User getUserById(@PathVariable UUID id) {
-        return userService.getUserById(id);
-    }
+   
     
     @GetMapping 
     public List<User> getAllUsers() {
@@ -33,5 +30,15 @@ public class UserController {
     @GetMapping("/email/{email}")
     public User getUserByEmail(@PathVariable String email) {
         return userService.getUserByEmail(email);
+    }
+
+    @GetMapping("/auth/{authId}")
+    public User getUserByAuthId(@PathVariable UUID authId) {
+        return userService.getUserByAuthId(authId);
+    }
+
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable UUID id) {
+        return userService.getUserById(id);
     }
 }

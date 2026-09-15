@@ -46,6 +46,6 @@ public class TeamController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Team createTeam(@Valid @RequestBody CreateTeamRequest request) {
-        return teamService.createTeam(request.getName());
+        return teamService.createTeam(request.getName(), request.getCreatorId());
         }
 }

@@ -8,23 +8,38 @@ import org.springframework.stereotype.Service;
 import com.charles.mocktrial.model.Team;
 import com.charles.mocktrial.repository.TeamMembershipRepository;
 import com.charles.mocktrial.repository.TeamRepository;
+import com.charles.mocktrial.repository.UserRepository;
+
+import jakarta.transaction.Transactional;
+
 import com.charles.mocktrial.model.TeamMembership;
 import com.charles.mocktrial.model.TeamRole;
+import com.charles.mocktrial.model.User;
 
 @Service 
 public class TeamService {
 
     private final TeamRepository teamRepository;
     private final TeamMembershipRepository membershipRepository;
+    private final UserRepository userRepository;
 
-    public TeamService(TeamRepository teamRepository, TeamMembershipRepository membershipRepository) {
+    public TeamService(TeamRepository teamRepository, TeamMembershipRepository membershipRepository, UserRepository userRepository) {
         this.teamRepository = teamRepository;
         this.membershipRepository = membershipRepository;
+        this.userRepository = userRepository;
     }
     
-    public Team createTeam(String name) {
-        Team team = new Team(name);
-        return teamRepository.save(team);
+    @Transactional 
+    public Team createTeam(String name, UUID creatorId) {
+        User creator = userRepository.findById(creatorId)
+            .orElseThrow(() -> new IllegalArgumentException("Usser not found"));
+        
+        Team team = teamRepository.save(new Team(name));
+        TeamMembership membership = new TeamMembership(creator, team, TeamRole.ADMIN);
+
+        membershipRepository.save(membership);
+
+        return team;
     }
 
     public Team getTeamById(UUID id) {

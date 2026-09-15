@@ -64,11 +64,11 @@ function App() {
        
         setAppUser(user)
 
-        let userTeams: Teams[]
+        let userTeams: Team[]
 
         try {
         const teamsResponse = await fetch(
-          `http://localhost:8080/api/user/teams/${user.id}`
+          `http://localhost:8080/api/teams/user/${user.id}`
         )
 
         if(!teamsResponse.ok) {
@@ -119,7 +119,7 @@ function App() {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
+      loadUser(session)
     })
 
     return () => {
@@ -139,14 +139,10 @@ function App() {
     return <p>Unable to load your application account.</p>
   }
 
-  if (!cases) {
-    return <p>Unable to load your cases.</p>
-  }
-
 
   return (
     <div>
-      <h1>Welcolme, {appUser?.name}</h1>
+      <h1>Welcome, {appUser?.name}</h1>
       <p>{appUser.email}</p>
       <p>{session.user.id}</p>
       <h2>Your Teams</h2>

@@ -1,6 +1,7 @@
 import { useEffect, useState} from 'react'
 import { supabase } from './lib/supabase'
 import type { Session } from '@supabase/supabase-js'
+import type { FormEvent} from 'react'
 
 import LoginPage from './pages/LoginPage'
 
@@ -32,7 +33,68 @@ function App() {
   const [appUser, setAppUser] = useState<AppUser | null>(null)
   const [loading, setLoading] = useState(true)
   const [teams, setTeams] = useState<Team[]>([])
-  const[cases, setCases] = useState<MockTrialCase[]>([])
+  const [cases, setCases] = useState<MockTrialCase[]>([])
+  const [newTeamName, setNewTeamName] = useState('')
+  const [creatingTeam, setCreatingTeam] = useState(false)
+  const [teamError, setTeamError] = useState<string | null>(null)
+
+  const handleCreateTeam = async (
+    event: FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault()
+
+    const name = newTeamName.trim()
+
+    if (!appUser || !name) {
+      return
+    }
+
+    setCreatingTeam(true)
+    setTeamError(null)
+
+    try {
+      const response = await fetch(
+        'http://localhost:8080/api/teams',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            creatorId: appUser.id,
+          }),
+        }
+      )
+
+      if (!response.ok) {
+        const responseBody = await response.text()
+
+        throw new Error(
+          responseBody || `Backend returned ${response.status}`
+        )
+      }
+
+      const createdTeam: Team = await response.json()
+
+      setTeams((currentTeams) => [
+        ...currentTeams,
+        createdTeam,
+      ])
+
+      setNewTeamName('')
+    } catch (error) {
+      console.error('Error creating team:', error)
+
+      setTeamError(
+        error instanceof Error 
+        ? error.message 
+        : 'Unable to create the team.'
+      )
+    } finally {
+      setCreatingTeam(false)
+    }
+  }
 
   useEffect(() => {
     const loadUser = async (currentSession: Session | null) =>  {
@@ -146,6 +208,33 @@ function App() {
       <p>{appUser.email}</p>
       <p>{session.user.id}</p>
       <h2>Your Teams</h2>
+      <form onSubmit={handleCreateTeam}>
+        <label htmlFor="team-name">
+          Team name
+        </label>
+
+        <input
+          id="team-name"
+          type="text"
+          value={newTeamName}
+          onChange={(event) => 
+            setNewTeamName(event.target.value)
+          }
+          disabled={creatingTeam}
+          required
+          maxLength={255}
+          />
+          <button
+          type="submit"
+          disabled={creatingTeam || !newTeamName.trim()}
+          >
+            {creatingTeam ? 'Creating...' : 'Create Team'}
+          </button>
+      </form>
+
+      {teamError && (
+        <p role="alert">{teamError}</p>
+      )}
 
       {teams.length === 0 ? (
         <p>You are not currently on a team.</p>
